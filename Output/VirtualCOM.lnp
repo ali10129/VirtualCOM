@@ -1,0 +1,23 @@
+--cpu Cortex-M3
+".\output\virtualcom.o"
+".\output\usbd_user_cdc_acm_uart_0.o"
+".\output\glcd_fonts.o"
+".\output\glcd_mcb1700.o"
+".\output\led_mcb1700.o"
+"C:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\RTOS\RTX\LIB\ARM\RTX_CM3.lib"
+".\output\rtx_conf_cm.o"
+".\output\otg_lpc17xx.o"
+".\output\ssp_lpc17xx.o"
+".\output\uart_lpc17xx.o"
+".\output\usbd_lpc17xx.o"
+".\output\gpdma_lpc17xx.o"
+".\output\gpio_lpc17xx.o"
+".\output\pin_lpc17xx.o"
+".\output\startup_lpc17xx.o"
+".\output\system_lpc17xx.o"
+"C:\Keil_v5\ARM\PACK\Keil\MDK-Middleware\7.6.0\USB\Lib\ARM\USB_CM3_L.lib"
+".\output\usbd_config_0.o"
+--strict --scatter ".\Output\VirtualCOM.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Output\VirtualCOM.map" -o .\Output\VirtualCOM.axf

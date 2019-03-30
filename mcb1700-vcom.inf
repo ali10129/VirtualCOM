@@ -1,0 +1,70 @@
+;
+; Copyright © ARM Ltd and ARM Germany GmbH
+; Communication Device Class driver installation file
+;
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%Keil%
+DriverVer=05/13/2013,5.3.0.0
+CatalogFile.NTx86=mcb1700-vcom_x86.cat
+CatalogFile.NTAMD64=mcb1700-vcom_amd64.cat
+
+[Manufacturer]
+%Keil%=DeviceList,ntamd64
+
+[DeviceList]
+%DESCRIPTION%=MCB1700USB, USB\VID_c251&PID_2205
+%COMPOSITE0% =MCB1700USB, USB\VID_c251&PID_2205&MI_00
+%COMPOSITE2% =MCB1700USB, USB\VID_c251&PID_2205&MI_02
+
+[DeviceList.ntamd64]
+%DESCRIPTION%=MCB1700USB, USB\VID_c251&PID_2205
+%COMPOSITE0% =MCB1700USB, USB\VID_c251&PID_2205&MI_00
+%COMPOSITE2% =MCB1700USB, USB\VID_c251&PID_2205&MI_02
+
+;------------------------------------------------------------------------------
+;  Installation
+;------------------------------------------------------------------------------
+
+[SourceDisksFiles]
+
+[SourceDisksNames]
+
+[DestinationDirs]
+FakeModemCopyFileSection=12
+DefaultDestDir=12
+[FakeModemCopyFileSection]
+
+[MCB1700USB]
+include=mdmcpq.inf
+CopyFiles=FakeModemCopyFileSection
+AddReg=MCB1700USB.AddReg
+
+[MCB1700USB.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,usbser.sys
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[MCB1700USB.Services]
+AddService=usbser, 0x00000002, DriverService
+
+[DriverService]
+DisplayName=%DRIVER.SVC%
+ServiceType=1
+StartType=3
+ErrorControl=1
+ServiceBinary=%12%\usbser.sys
+
+;------------------------------------------------------------------------------
+;  String Definitions
+;------------------------------------------------------------------------------
+
+[Strings]
+Keil       = "Keil - An ARM Company"
+DRIVER.SVC = "MCB1700 USB VCom Driver"
+DESCRIPTION= "MCB1700 USB VCom Port"
+COMPOSITE0 = "MCB1700 USB VCom Port"
+COMPOSITE2 = "MCB1700 USB VCom Port"
