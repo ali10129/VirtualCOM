@@ -26,7 +26,6 @@ extern    GLCD_FONT GLCD_Font_16x24;
 #define LINE_FEED   0x0A //LF, For Linux, MAC and Windows Terminals
 #define CARRIAGE_RETURN 0x0D //CR, For Windows Terminals (CR+LF).
 //---------------------------
-#define SBIT_CNTEN     0 
 #define SBIT_CNTEN     0
 #define SBIT_PWMEN     2
 #define SBIT_PWMMR0R   1
