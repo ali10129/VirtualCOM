@@ -54,7 +54,6 @@ uint32_t s1=0,flv;
 //***********************************************
 
 void CDC0_ACM_UART_to_USB_Threadm (void const *arg) {
-  //(void)(arg);
 
 while (1) {
 	// UART - > USB
